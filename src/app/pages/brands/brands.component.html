@@ -1,0 +1,15 @@
+<section class="container brand">
+    <h2 class="text-center text-success display-6 mb-3">All Brands</h2>
+    <div class="row g-4 text-center">
+        @for (item of branddata; track item._id) {
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card border border-secondary rounded overflow-hidden shadow-sm brand-card">
+                <img [src]="item.image" class="card-img-top brand-img" [alt]="item.name">
+                <div class="card-body">
+                    <h5 class="card-title text-success">{{item.name}}</h5>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,45 @@
+// متغيرات الألوان
+$primary-color: #6f42c1;
+$success-color: #198754;
+$muted-color: #6c757d;
+$light-bg: #f8f9fa;
+
+.footer {
+    background-color: $light-bg;
+    color: $muted-color;
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        &:focus {
+            border-color: $success-color;
+            box-shadow: 0 0 5px rgba($success-color, 0.5);
+        }
+    }
+
+    .btn-success {
+        border-radius: 5px;
+        transition: background 0.3s;
+        &:hover {
+            background-color: darken($success-color, 10%);
+        }
+    }
+
+    h6 {
+        color: $primary-color;
+    }
+
+    img {
+        filter: brightness(85%);
+        transition: filter 0.3s;
+        &:hover {
+            filter: brightness(100%);
+        }
+    }
+}

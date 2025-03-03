@@ -1,0 +1,37 @@
+.fixed-section {
+    margin-top: 4.25rem;
+  }
+  
+
+  .full-slider-img {
+    height: 300px;
+  }
+  
+  .banner-img {
+    height: 150px;
+    filter: brightness(90%);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .category-card {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  
+    &:hover {
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+  }
+  
+  .category-img {
+    height: 250px;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  

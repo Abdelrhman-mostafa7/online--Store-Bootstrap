@@ -1,0 +1,23 @@
+<section class="col-md-6 container shadow border bg-white p-4 rounded margin dark-mode">
+    <h1 class="fs-4 mb-4 dark-mode-text">Checkout Now</h1>
+    <form [formGroup]="checkout" (ngSubmit)="sumbiteform()">
+        <div class="mb-3">
+            <label for="details" class="form-label dark-mode-text">Details</label>
+            <input formControlName="details" type="text" id="details" class="form-control dark-mode-input">
+        </div>
+
+        <div class="mb-3">
+            <label for="city" class="form-label dark-mode-text">City</label>
+            <input formControlName="city" type="text" id="city" class="form-control dark-mode-input">
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label dark-mode-text">Phone</label>
+            <input formControlName="phone" type="text" id="phone" class="form-control dark-mode-input">
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">
+            Payment
+        </button>
+    </form>
+</section>

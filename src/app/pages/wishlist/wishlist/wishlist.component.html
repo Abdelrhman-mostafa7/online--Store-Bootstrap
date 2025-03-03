@@ -1,0 +1,24 @@
+<section class="bg-light border roundedshadow container margin w-75">
+  <h1 class="text-center text-success">My Wish List</h1>
+  
+  @for (item of wishdata; track $index) {
+  <div class="row align-items-center border-bottom py-3">
+    <div class="col-md-2 text-center">
+      <img [src]="item.imageCover" class="img-fluid w-100 mt-2" alt="" />
+    </div>
+    <div class="col-md-8">
+      <h3 class="text-dark">{{ item.title.split(' ').slice(0, 2).join(' ') }}</h3>
+      <h4 class="text-success">{{item.price}} EGP</h4>
+      <button (click)="removeitemwish(item.id)" class="btn btn-link text-danger p-0">
+        <i class="fas fa-trash-can"></i> Remove
+      </button>
+    </div>
+    <div class="col-md-2 text-end">
+      <button (click)="addcart(item.id)"
+        class="btn btn-outline-success w-100 py-2 transition-transform">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+  }
+</section>

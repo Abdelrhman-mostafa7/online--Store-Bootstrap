@@ -1,0 +1,42 @@
+<section class="cart-container container">
+    <h1 class="text-center text-success">Shop Cart</h1>
+    <h3 class="text-success">Total Price: {{ cartdetails.totalCartPrice }} EGP</h3>
+
+    <button (click)="clearitemcart()" class="btn btn-danger btn-sm float-end">
+        Clear Cart
+    </button>
+
+    @for (item of cartdetails.products; track item.product._id) {
+    <div class="row align-items-center cart-item margin">
+
+        <div class="col-md-2">
+            <img [src]="item.product.imageCover" class="img-fluid cart-item-img" [alt]="item.product.title" />
+        </div>
+
+        <div class="col-md-7">
+            <h5 class="cart-item-title">{{ item.product.title }}</h5>
+            <p class="cart-item-price text-success">Price: {{ item.price }} EGP</p>
+            <button (click)="removeitemcart(item.product._id)" class="btn btn-link text-danger p-0">
+                <i class="fas fa-trash"></i> Remove
+            </button>
+        </div>
+
+        <div class="col-md-3 text-center">
+            <div class="btn-group">
+                <button (click)="updataitemcart(item.product._id, item.count + 1)" class="btn btn-outline-success">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <span class="cart-item-quantity">{{ item.count }}</span>
+                <button (click)="updataitemcart(item.product._id, item.count - 1)" class="btn btn-outline-danger"
+                    [disabled]="item.count <= 1">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+
+    <button [routerLink]="['/Checkout', cartdetails._id]" class="btn btn-success mt-3">
+        Payment
+    </button>
+</section>

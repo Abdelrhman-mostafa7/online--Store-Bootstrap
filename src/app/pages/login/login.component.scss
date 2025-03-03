@@ -1,0 +1,40 @@
+$success-color: #198754;
+$error-color: #dc3545;
+$light-bg: #f8f9fa;
+
+.container {
+    background-color: $light-bg;
+}
+.margin{
+    margin-top: 5rem;
+}
+h1 {
+    color: #333;
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+    &:focus {
+        border-color: $success-color;
+        box-shadow: 0 0 5px rgba($success-color, 0.5);
+    }
+}
+
+.btn-success {
+    transition: background 0.3s;
+    &:hover {
+        background-color: darken($success-color, 10%);
+    }
+}
+
+.alert {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}

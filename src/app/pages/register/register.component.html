@@ -1,0 +1,80 @@
+<section class="col-md-6 container margin shadow border bg-white p-4 rounded">
+    <h1 class="h4 mb-4">Register Now</h1>
+    <form [formGroup]="register" (ngSubmit)="sumbiteform()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input formControlName="name" type="text" id="name" class="form-control">
+        </div>
+        @if (register.get('name')?.errors && register.get('name')?.touched) {
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @if (register.get('name')?.getError('required')) { <li>Name is required</li> }
+                @else if (register.get('name')?.getError('minlength')) { <li>Name must be at least 3 characters</li> }
+                @else if (register.get('name')?.getError('maxlength')) { <li>Name must be at most 20 characters</li> }
+            </ul>
+        </div>
+        }
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input formControlName="email" type="email" id="email" class="form-control">
+        </div>
+        @if (register.get('email')?.errors && register.get('email')?.touched) {
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @if (register.get('email')?.getError('required')) { <li>Email is required</li> }
+                @else if (register.get('email')?.getError('email')) { <li>Enter a valid email</li> }
+            </ul>
+        </div>
+        }
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input formControlName="password" type="password" id="password" class="form-control">
+        </div>
+        @if (register.get('password')?.errors && register.get('password')?.touched) {
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @if (register.get('password')?.getError('required')) { <li>Password is required</li> }
+                @else if (register.get('password')?.getError('pattern')) { <li>Enter a valid password</li> }
+            </ul>
+        </div>
+        }
+
+        <div class="mb-3">
+            <label for="rePassword" class="form-label">Confirm Password</label>
+            <input formControlName="rePassword" type="password" id="rePassword" class="form-control">
+        </div>
+        @if (register.getError('mismatch') && register.get('rePassword')?.touched) {
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                <li>Password confirmation is incorrect</li>
+            </ul>
+        </div>
+        }
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input formControlName="phone" type="tel" id="phone" class="form-control">
+        </div>
+        @if (register.get('phone')?.errors && register.get('phone')?.touched) {
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @if (register.get('phone')?.getError('required')) { <li>Phone is required</li> }
+                @else if (register.get('phone')?.getError('pattern')) { <li>Enter a valid phone number</li> }
+            </ul>
+        </div>
+        }
+
+        <button [disabled]="Isloading" type="submit" class="btn btn-success w-100">
+            Sign Up @if (Isloading) {<i class="fas fa-spinner fa-spin"></i>}
+        </button>
+
+        @if(mesError){
+        <div class="alert alert-danger mt-3">{{mesError}}</div>
+        }
+        @if (messuccess) {
+        <div class="alert alert-success mt-3">Account created successfully</div>
+        }
+    </form>
+</section>

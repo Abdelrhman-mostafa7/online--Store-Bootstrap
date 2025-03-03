@@ -1,0 +1,14 @@
+.navbar {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.navbar .nav-link.active {
+  background-color: #198754;
+  color: white !important;
+  border-radius: 5px;
+}
+
+.dark-mode {
+  filter: brightness(75%);
+}

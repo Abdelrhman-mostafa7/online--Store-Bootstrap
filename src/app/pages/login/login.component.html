@@ -1,0 +1,55 @@
+<section class="container margin">
+    <div class="col-md-6 mx-auto shadow-sm border bg-white p-4 rounded">
+      <h1 class="h4 mb-4 text-center text-dark">{{'login.loginNow' | translate}}</h1>
+  
+      <form [formGroup]="login" (ngSubmit)="sumbiteform()">
+        <div class="mb-3">
+          <label for="email" class="form-label">{{'login.email' | translate}}</label>
+          <input formControlName="email" type="email" id="email" class="form-control">
+          @if (login.get('email')?.errors && login.get('email')?.touched) {
+          <div class="alert alert-danger mt-2 p-2">
+            <ul class="m-0">
+              @if (login.get('email')?.getError('required')) { <li>Email is required</li> }
+              @else if (login.get('email')?.getError('email')) { <li>Enter a valid email</li> }
+            </ul>
+          </div>
+          }
+        </div>
+  
+        <div class="mb-3">
+          <label for="password" class="form-label">{{'login.password' | translate}}</label>
+          <input formControlName="password" type="password" id="password" class="form-control">
+          @if (login.get('password')?.errors && login.get('password')?.touched) {
+          <div class="alert alert-danger mt-2 p-2">
+            <ul class="m-0">
+              @if (login.get('password')?.getError('required')) { <li>Password is required</li> }
+              @else if (login.get('password')?.getError('pattern')) { <li>Enter a valid password</li> }
+            </ul>
+          </div>
+          }
+        </div>
+  
+        <button [disabled]="Isloading" type="submit" class="btn btn-success w-100">
+          {{'login.signIn' | translate}}
+          @if (Isloading) { <i class="fas fa-spinner fa-spin"></i> }
+        </button>
+  
+        @if (mesError) {
+        <div class="alert alert-danger mt-3">
+          <span class="fw-bold">{{ mesError }}</span>
+        </div>
+        }
+  
+        @if (messuccess) {
+        <div class="alert alert-success mt-3">
+          <span class="fw-bold">Login successful</span>
+        </div>
+        }
+  
+        <div class="mt-3 text-center">
+          <a routerLink="/Forgetpassword" class="text-success">Forget password?</a>
+        </div>
+      </form>
+    </div>
+  </section>
+  

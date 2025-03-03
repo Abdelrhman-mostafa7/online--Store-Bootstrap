@@ -1,0 +1,13 @@
+<section class="d-flex align-items-center bg-light margin  dark-mode">
+    <div class="col-md-3 mx-auto border border-success rounded shadow-sm overflow-hidden">
+        <img [src]="protectedDetails.imageCover" class="img-fluid dark-mode-img" alt="">
+    </div>
+    <div class="col-md-6 border p-4 border-success rounded shadow-sm text-center bg-white dark-mode-box">
+        <h2 class="text-dark dark-mode-text">{{protectedDetails.title}}</h2>
+        <br>
+        <p class="text-muted dark-mode-text">{{protectedDetails.description}}</p>
+        <button (click)="addcart(protectedDetails.id)" class="btn btn-success w-75">
+            Add To Cart
+        </button>
+    </div>
+</section>

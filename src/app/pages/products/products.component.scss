@@ -1,0 +1,27 @@
+.fixed-section {
+  margin-top: 4.25rem;
+}
+
+.hover-effect {
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+    transform: scale(1.05);
+  }
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: contain;
+  filter: brightness(90%);
+}
+
+.fa-heart {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.text-danger {
+  color: red !important;
+}

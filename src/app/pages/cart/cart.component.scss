@@ -1,0 +1,90 @@
+// تعريف المتغيرات
+$primary-color: #28a745;
+$danger-color: #dc3545;
+$text-color: #333;
+$bg-color: #f8f9fa;
+
+.cart-container {
+    max-width: 75%;
+    margin-top: 6rem;
+    padding: 20px;
+    background-color: $bg-color;
+    border: 1px solid darken($bg-color, 10%);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    .margin{
+        margin-top: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cart-item {
+        border-bottom: 1px solid lighten($text-color, 50%);
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+
+        .cart-item-img {
+            max-height: 100px;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .cart-item-title {
+            font-size: 1.2rem;
+            color: $text-color;
+        }
+
+        .cart-item-price {
+            font-weight: bold;
+        }
+
+        .cart-item-quantity {
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+    }
+
+    .btn-group {
+        display: flex;
+        align-items: center;
+
+        .btn {
+            font-size: 1rem;
+            padding: 5px 10px;
+        }
+    }
+
+    .btn-danger {
+        background-color: $danger-color;
+        border-color: darken($danger-color, 10%);
+    }
+
+    .btn-success {
+        background-color: $primary-color;
+        border-color: darken($primary-color, 10%);
+    }
+
+    .btn-outline-success {
+        color: $primary-color;
+        border-color: $primary-color;
+
+        &:hover {
+            background-color: $primary-color;
+            color: white;
+        }
+    }
+
+    .btn-outline-danger {
+        color: $danger-color;
+        border-color: $danger-color;
+
+        &:hover {
+            background-color: $danger-color;
+            color: white;
+        }
+    }
+}

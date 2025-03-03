@@ -1,0 +1,33 @@
+@import "bootstrap/scss/bootstrap";
+
+$primary-color: #198754;
+$text-color: #333;
+$border-radius: 8px;
+
+.form-control {
+  border-radius: $border-radius;
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 5px rgba($primary-color, 0.5);
+  }
+}
+.margin{
+    margin-top: 5rem;
+}
+
+.btn {
+  border-radius: $border-radius;
+  &.btn-success {
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.alert {
+  border-radius: $border-radius;
+}

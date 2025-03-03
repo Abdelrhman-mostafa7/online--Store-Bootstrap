@@ -1,0 +1,38 @@
+<section class="bg-light mb-5 fixed-section">
+    <div class="row">
+        <div class="col-md-9">
+            <owl-carousel-o [options]="custMainpsliader">
+                <ng-template carouselSlide>
+                    <img src="/images/slider-image-1.jpeg" class="w-100 img-fluid full-slider-img" alt="">
+                </ng-template> 
+                <ng-template carouselSlide>
+                    <img src="/images/slider-image-2.jpeg" class="w-100 img-fluid full-slider-img" alt="">
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img src="/images/slider-image-3.jpeg" class="w-100 img-fluid full-slider-img" alt="">
+                </ng-template> 
+            </owl-carousel-o>
+        </div>
+        <div class="col-md-3 d-flex flex-column gap-2">
+            <img src="/images/slider-2.jpeg" class="w-100 img-fluid banner-img" alt="" />
+            <img src="/images/grocery-banner-2.jpeg" class="w-100 img-fluid banner-img" alt="" />
+        </div>
+    </div>
+</section>
+
+<section class="mb-5">
+    <h2 class="fs-3 mb-3 text-success">Popular Categories <span>:</span></h2>
+
+    <owl-carousel-o [options]="customOptions">
+        @for (item of category; track item._id) {
+            <ng-template carouselSlide>
+                <div class="category-card text-center">
+                    <img [src]="item.image" class="w-100 img-fluid category-img" alt="">
+                    <h3 class="text-success mt-2">{{item.name}}</h3>
+                </div>
+            </ng-template>
+        }
+    </owl-carousel-o>
+</section>
+
+<app-products></app-products>

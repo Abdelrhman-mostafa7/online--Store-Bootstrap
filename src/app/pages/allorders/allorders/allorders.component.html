@@ -1,0 +1,42 @@
+<section class="bg-light border rounded p-4 shadow container margin dark-mode">
+  <h1 class="text-center text-success fs-3 mb-4 dark-mode-text">All Orders</h1>
+  @for (order of AllOrdersList; track $index) {
+  <div class="border p-4 mb-3 rounded dark-mode-border">
+    @for (item of order.cartItems ; track $index) {
+    <div class="row align-items-center g-4">
+      <div class="col-md-2">
+        <img
+          [src]="item.product.imageCover"
+          class="w-100 h-auto object-contain dark-mode-img"
+          alt=""
+        />
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-success dark-mode-text">{{ item.product.title }}</h3>
+        <p class="text-uppercase mb-0 dark-mode-text">Count: {{ item.count }}</p>
+        <p class="text-uppercase mb-0 dark-mode-text">Price: {{ item.price }}</p>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="order-details text-center">
+          <p class="text-uppercase mb-0 p-1 dark-mode-text">
+            Is Delivered:
+            <span class="badge bg-danger dark-mode-badge">No</span>
+          </p>
+          <p class="text-uppercase mb-0 p-1 dark-mode-text">
+            Is Paid:
+            <span class="badge bg-success dark-mode-badge">Yes</span>
+          </p>
+          <p class="text-uppercase mb-0 p-1 dark-mode-text">
+            Payment Type Method:
+            <span class="text-success dark-mode-text">{{ order.paymentMethodType }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr class="dark-mode-border">
+    }
+  </div>
+  }
+</section>

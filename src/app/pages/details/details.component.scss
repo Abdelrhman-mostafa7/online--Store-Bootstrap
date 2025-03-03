@@ -1,0 +1,17 @@
+@import "bootstrap/scss/bootstrap";
+
+.dark-mode {
+  background-color: #1e293b; 
+}
+.margin{
+    margin-top: 5rem;
+}
+
+.btn-success {
+  background-color: #198754;
+  border-color: #198754;
+
+  &:hover {
+    background-color: darken(#198754, 10%);
+  }
+}

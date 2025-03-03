@@ -1,0 +1,16 @@
+<section class="container margin">
+    <h2 class="text-center text-success display-5 mb-4">Popular Categories</h2>
+
+    <div class="row g-4 text-center">
+        @for (item of category; track item._id) {
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card category-card border-success">
+                <div class="p-3">
+                    <img [src]="item.image" class="img-fluid category-img" alt="">
+                    <h3 class="mt-2 text-success">{{ item.name }}</h3>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>

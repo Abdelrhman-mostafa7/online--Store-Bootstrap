@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/home">
+      <img src="/images/freshcart-logo.svg" alt="FreshCart Logo" class="dark-mode">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto text-uppercase">
+        @if (isligin()) {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">{{'navbar.home'| translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products" routerLinkActive="active">{{'navbar.products'| translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Wishlist" routerLinkActive="active">{{'navbar.Wishlist'| translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/categories" routerLinkActive="active">{{'navbar.categories'| translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/brands" routerLinkActive="active">{{'navbar.brands'| translate}}</a>
+          </li>
+        }
+      </ul>
+      <ul class="navbar-nav">
+        @if (!isligin()) {
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-success" routerLink="/login">{{'navbar.login'| translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-success ms-2" routerLink="/register">{{'navbar.register'| translate}}</a>
+          </li>
+        }
+        @else {
+          <li class="nav-item position-relative">
+            <a class="nav-link" routerLink="/cart">
+              <i class="fas fa-shopping-cart fs-4"></i>
+              <span class="badge bg-success">{{countcart}}</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-danger ms-3" (click)="authService.logout()">{{'navbar.logout'| translate}}</button>
+          </li>
+        }
+        
+        <li class="nav-item dropdown ms-3">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown">
+            {{'navbar.lang'| translate}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+            <li><a class="dropdown-item" (click)="chang('en')">EN</a></li>
+            <li><a class="dropdown-item" (click)="chang('ar')">AR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
