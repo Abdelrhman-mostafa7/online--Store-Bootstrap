@@ -25,7 +25,24 @@ export class WishlistComponent implements OnInit {
   getwish(): void {
     this.wishlistService.getwishlist().subscribe({
       next: (res) => {
-        this.wishdata = res.data;
+        if (res && res.data) {
+          this.wishdata = res.data;
+        }
+      },
+      error: (err) => {
+        if (err.message.includes('401')) {
+          Swal.fire({
+            title: "Session Expired",
+            text: "Please log in to access your wishlist.",
+            icon: "warning",
+            confirmButtonText: "OK"
+          }).then(() => {
+            localStorage.removeItem('token'); // مسح التوكن
+            window.location.href = "/login"; // إعادة التوجيه إلى صفحة تسجيل الدخول
+          });
+        } else {
+          this.toastrService.error("Failed to load wishlist!", "Error");
+        }
       }
     });
   }
@@ -33,10 +50,11 @@ export class WishlistComponent implements OnInit {
   addcart(id: string): void {
     this.cartService.addcart(id).subscribe({
       next: (res) => {
-        this.toastrService.success(res.message, "fresh Cart");
+        this.toastrService.success(res.message, "Fresh Cart");
         this.cartService.cartNumber.next(res.numOfCartItems);
       },
-      error: (err) => {
+      error: () => {
+        this.toastrService.error("Failed to add to cart!", "Error");
       }
     });
   }
@@ -53,7 +71,7 @@ export class WishlistComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.wishlistService.deletwishlist(id).subscribe({
-          next: (res) => {
+          next: () => {
             this.wishdata = this.wishdata.filter(item => item.id !== id);
             Swal.fire({
               title: "Deleted!",
@@ -61,7 +79,7 @@ export class WishlistComponent implements OnInit {
               icon: "success"
             });
           },
-          error: (err) => {
+          error: () => {
             Swal.fire({
               title: "Error!",
               text: "Failed to remove the item.",
